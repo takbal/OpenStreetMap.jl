@@ -20,6 +20,12 @@ before_install:
   - "sh -e /etc/init.d/xvfb start"
 script:
   - julia -e 'versioninfo(); Pkg.init(); Pkg.clone(pwd())'
+  - julia -e 'Pkg.checkout("Geodesy")'
+  - julia -e 'Pkg.checkout("Cairo")'
+  - julia -e 'Pkg.checkout("CodeTools")'
+  - julia -e 'Pkg.checkout("IniFile")'
+  - julia -e 'Pkg.checkout("Tk")'
+  - julia -e 'Pkg.checkout("Winston")'
   - julia -e 'Pkg.test("OpenStreetMap", coverage=true)'
 after_success:
   - julia -e 'cd(Pkg.dir("OpenStreetMap")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
