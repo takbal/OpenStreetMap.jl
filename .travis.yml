@@ -22,7 +22,7 @@ script:
   - julia -e 'versioninfo(); Pkg.init(); Pkg.clone(pwd())'
   - julia -e 'Pkg.checkout("Geodesy")'
   - julia -e 'Pkg.checkout("Cairo")'
-  - julia -e 'Pkg.checkout("CodeTools")'
+  - julia -e 'Pkg.checkout("LibExpat")'
   - julia -e 'Pkg.checkout("IniFile")'
   - julia -e 'Pkg.checkout("Tk")'
   - julia -e 'Pkg.checkout("Winston")'
